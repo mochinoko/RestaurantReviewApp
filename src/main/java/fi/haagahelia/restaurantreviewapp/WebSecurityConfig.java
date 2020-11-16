@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http
-        .authorizeRequests().antMatchers("/css/**").permitAll() // Enable css when logged out
+        .authorizeRequests().antMatchers("/saveuser", "/signup", "/css/**").permitAll() // Enable css when logged out
         .and()
         .authorizeRequests()
           .anyRequest().authenticated()
@@ -36,10 +36,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
           .and()
       .logout()
           .permitAll();
+		
 	}
 	  @Autowired
 	    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 	        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
-	    }
+	   }
 
 }

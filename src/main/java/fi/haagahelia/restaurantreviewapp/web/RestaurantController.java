@@ -17,6 +17,7 @@ import fi.haagahelia.restaurantreviewapp.domain.Category;
 import fi.haagahelia.restaurantreviewapp.domain.CategoryRepository;
 import fi.haagahelia.restaurantreviewapp.domain.Restaurant;
 import fi.haagahelia.restaurantreviewapp.domain.RestaurantRepository;
+import fi.haagahelia.restaurantreviewapp.domain.SignupForm;
 
 @Controller
 public class RestaurantController {
@@ -25,6 +26,8 @@ public class RestaurantController {
 	
 	@Autowired
 	private CategoryRepository crepository;
+	
+
 	
 	@RequestMapping(value="/login")
 	public String login() {
