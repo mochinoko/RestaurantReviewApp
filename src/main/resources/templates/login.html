@@ -13,18 +13,19 @@
         <div class="alert alert-danger" th:if="${param.error}">
             Invalid username and password.
         </div>
-          </div>
+        
         <div th:if="${param.logout}">
             You have been logged out.
         </div>
         <form th:action="@{/login}" method="post" class="text-center border border-light p-5">
-            <div><label> User Name : <input type="text" name="username" class={form-control}/> </label></div>
-            <div><label}> Password: <input type="password" name="password" class={form-control}/> </label></div>
+            <label> User Name : <input type="text" name="username" class={form-control}/> </label>
+            <label}> Password: <input type="password" name="password" class={form-control}/> </label>
              </br>
-            <div><input class="btn btn-primary btn-block btn-large" style="width:100px; margin:auto" type="submit" value="Sign In"/></div>
+            <input class="btn btn-primary btn-block btn-large" style="width:100px; margin:auto" type="submit" value="Sign In"/>
         </form>
         </br>
-	</br>
- 	 <a th:href="@{/signup}">Sign-up</a>
+		</br>
+ 		 <a th:href="@{/signup}">Sign-up</a>
+ 	  </div>
     </body>
-</html>∂
+</html>
