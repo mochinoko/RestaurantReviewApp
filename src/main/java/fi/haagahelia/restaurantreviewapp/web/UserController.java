@@ -18,7 +18,7 @@ import fi.haagahelia.restaurantreviewapp.domain.UserRepository;
 @Controller
 public class UserController {
 	@Autowired
-    private UserRepository repository; 
+    private UserRepository urepository; 
 
 	 @RequestMapping(value = "signup")
 	    public String addStudent(Model model){
@@ -53,10 +53,10 @@ public class UserController {
 			    	newUser.setRole("USER");
 			    	newUser.setEmail("yuki@hotmail.com");
 			    	System.out.println("Yuki " + newUser);
-			    	if (repository.findByUsername(signupForm.getUsername()) == null) { // Check if user exists
+			    	if (urepository.findByUsername(signupForm.getUsername()) == null) { // Check if user exists
 			    		System.out.println("fetch all USERS");
-			    		repository.save(newUser);
-			    		for (User user : repository.findAll()) {
+			    		urepository.save(newUser);
+			    		for (User user : urepository.findAll()) {
 							System.out.println(user.toString());
 						}
 			    	}
