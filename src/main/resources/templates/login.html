@@ -10,7 +10,9 @@
     </head>
     <body>
      <div class="container">
-       
+        <div class="alert alert-danger" th:if="${param.error}">
+            Invalid username and password.
+        </div>
       </div>
         <div th:if="${param.logout}">
             You have been logged out.
