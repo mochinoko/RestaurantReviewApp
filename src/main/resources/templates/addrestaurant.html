@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Booklist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+	<link type="text/css" rel="stylesheet" href="/css/login.css" th:href="@{css/login.css}" />
+	
+</head>
+<body>
+	<div>
+	
+		<h1> Add Restaurants </h1> </br>
+		<form th:object="${restaurant}" th:action="@{save}" action="#" method="post">
+			
+		  	<label for="title">Name</label>
+			<input type="text" id="name" th:field="*{restaurantName}" class={form-control}  />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="address">address</label>
+			<input type="text" id="address" th:field="*{address}" class={form-control}  />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="review">Review</label>
+			<input type="text" id = "review" th:field="*{review}" class={form-control}  />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	<label for="rate">Rate</label>
+			<input type="text" id="rate" th:field="*{rate}"  class={form-control} />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+		  	<label for="category">Category</label>
+			 <select id="category" th:field="*{category}" class="form-control">
+       			<option th:each="category: ${categories}" th:value="${category.categoryid}" th:text="${category.name}"></option>
+    		</select>
+				
+			<div style="clear: both; display: block; height: 30px;"></div>
+			<button type="submit" value="Submit">Submit</button>
+		</form>
+	</div>
+</body>
+</html>

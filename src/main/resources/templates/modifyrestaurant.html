@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+   
+<head>
+    <title>Booklist</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/login.css}" />
+</head>
+
+<body>
+	
+	<div class="container" style="margin:auto">
+		<div class="col-md-4" style="margin:auto; ">
+			<h1>Modify Restaurant</h1> </br>
+			
+		<form style="font-size: 20px; padding-left: 5px;" th:object="${restaurant}" th:action="@{/saveEdit}" action="#" method="get">
+			<input  type="hidden" th:field="*{id}" />
+			<label for="name">Name</label>
+			<input type="text" id="name" th:field="*{restaurantName}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	
+		  	<label for="address">Address</label>
+			<input type="text" id="address" th:field="*{address}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		  	
+		  	<label for="review">Review</label>
+			<input type="text" id = "review" th:field="*{review}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<label for="rate">Rate</label>
+			<input type="text" id="rate" th:field="*{rate}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			
+		  	<label for="category">Category</label>
+			 
+			 <select style="font-size: 22px;" id="category" th:field="*{category}" class="form-control">
+       			
+       			<option th:each="category: ${categories}" 
+       					th:value="${category.categoryid}"
+       			 		th:text="${category.name}"></option>
+    		</select>
+			
+			
+			
+				<br/>
+		
+				<br/>
+			<button type="submit" value="Save">Save</button>
+		</form>
+		</div>
+	</div>
+</body>
+</html>
