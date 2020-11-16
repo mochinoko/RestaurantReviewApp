@@ -24,7 +24,7 @@ public class RestaurantReviewAppApplication {
 	@Bean
 	public CommandLineRunner demo(RestaurantRepository repository, CategoryRepository crepository, UserRepository urepository) {
 		return (args) -> {
-			/*
+			
 			log.info("save a couple of restaurants");
 			repository.deleteAll();
 			crepository.deleteAll();
@@ -60,7 +60,7 @@ public class RestaurantReviewAppApplication {
 			for (Restaurant restaurant : repository.findAll()) {
 				log.info(restaurant.toString());
 			}
-			*/
+		
 		};
 		
 	}
