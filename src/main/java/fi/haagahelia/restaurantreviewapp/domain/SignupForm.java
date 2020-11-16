@@ -19,7 +19,7 @@ public class SignupForm {
 
     @NotEmpty
     @Size(min=7, max=30)
-    private String email = "jukka@email.com";
+    private String email = "yuki@email.com";
     
     
     @NotEmpty
