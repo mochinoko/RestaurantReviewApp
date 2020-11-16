@@ -51,8 +51,8 @@ public class UserController {
 			    	newUser.setPasswordHash(hashPwd);
 			    	newUser.setUsername(signupForm.getUsername());
 			    	newUser.setRole("USER");
-			    	newUser.setEmail("yuki@hotmail.com");
-			    	System.out.println("Yuki " + newUser);
+			    	
+			    
 			    	if (urepository.findByUsername(signupForm.getUsername()) == null) { // Check if user exists
 			    		System.out.println("fetch all USERS");
 			    		urepository.save(newUser);
