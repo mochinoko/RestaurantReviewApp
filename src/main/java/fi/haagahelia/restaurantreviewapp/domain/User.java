@@ -3,6 +3,7 @@ package fi.haagahelia.restaurantreviewapp.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name="usertable")
 public class User {
 
     @Id
