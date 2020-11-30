@@ -18,6 +18,7 @@ import fi.haagahelia.restaurantreviewapp.domain.CategoryRepository;
 import fi.haagahelia.restaurantreviewapp.domain.Restaurant;
 import fi.haagahelia.restaurantreviewapp.domain.RestaurantRepository;
 import fi.haagahelia.restaurantreviewapp.domain.SignupForm;
+import fi.haagahelia.restaurantreviewapp.service.RestaurantService;
 
 @Controller
 public class RestaurantController {
@@ -27,7 +28,10 @@ public class RestaurantController {
 	@Autowired
 	private CategoryRepository crepository;
 	
-
+	
+	@Autowired
+	private RestaurantService restaurantService;
+	
 	
 	@RequestMapping(value="/login")
 	public String login() {
@@ -38,12 +42,22 @@ public class RestaurantController {
 	public String restaurantList(Model model) {
 		model.addAttribute("restaurants", repository.findAll());
 		
-		
-		
 		return "restaurantlist";
 	}
 	
+	//Search restaurant by keyword
+	
+	@GetMapping("/restaurants")
+	public String getRestaurants(Model model, String keyword) {
+		if(keyword != null ) {
+			model.addAttribute("restaurants", restaurantService.findByKeyword(keyword));
+		} else {
+			model.addAttribute("restaurants", restaurantService.getRestaurants());
+		}
+		return "restaurantlist";
+	}
 
+	
 	//Add new restaurant
 	
 	@RequestMapping(value="/add")
